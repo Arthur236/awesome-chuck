@@ -6,7 +6,7 @@ import Loader from '../Loader';
 import CategoryCard from '../CategoryCard';
 import { CategoryWrapper } from './CategoriesStyles';
 
-const FETCH_CATEGORIES = gql`
+export const FETCH_CATEGORIES = gql`
   query FetchCategories {
     categories {
       name

@@ -6,7 +6,7 @@ import Routes from './Routes';
 import 'antd/dist/antd.css';
 import '../styles/styles.css';
 
-function App() {
+const App = () => {
   return (
     <div className="App">
       <Router>
@@ -14,6 +14,6 @@ function App() {
       </Router>
     </div>
   );
-}
+};
 
 export default App;
