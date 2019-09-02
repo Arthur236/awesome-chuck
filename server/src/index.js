@@ -1,12 +1,16 @@
-import { ApolloServer } from 'apollo-server';
-import chalk from 'chalk';
+const { ApolloServer } =require('apollo-server');
+const chalk = require('chalk');
 
-import typeDefs from './schema';
-import resolvers from './resolvers';
+const typeDefs = require('./schema');
+const resolvers = require('./resolvers');
+const ChuckNorrisAPI = require('./dataSources/chuckNorris');
 
 const server = new ApolloServer({
   typeDefs,
-  resolvers
+  resolvers,
+  dataSources: () => ({
+    chuckNorrisApi: new ChuckNorrisAPI()
+  })
 });
 
 server.listen().then(({ url }) => {

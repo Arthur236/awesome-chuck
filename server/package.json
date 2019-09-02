@@ -5,14 +5,13 @@
   "main": "src/index.js",
   "scripts": {
     "test": "jest",
-    "start": "nodemon --exec babel-node src/index.js"
+    "start": "nodemon src/index.js"
   },
   "keywords": [],
   "author": "Arthur",
   "license": "ISC",
   "dependencies": {
     "@babel/core": "^7.5.5",
-    "@babel/node": "^7.5.5",
     "@babel/plugin-proposal-object-rest-spread": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
     "apollo-datasource": "^0.6.3",
@@ -20,7 +19,6 @@
     "apollo-server": "^2.9.2",
     "apollo-server-lambda": "^2.9.2",
     "apollo-server-testing": "^2.9.2",
-    "babel-eslint": "^10.0.3",
     "babel-loader": "^8.0.6",
     "chalk": "^2.4.2",
     "graphql": "^14.5.4",

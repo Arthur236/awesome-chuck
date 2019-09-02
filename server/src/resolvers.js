@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   Query: {
     categories: (parent, args, context, info) => {
       const { dataSources } = context;
