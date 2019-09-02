@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
-import { Avatar, Button, Layout, Menu } from 'antd';
+import { Button, Layout } from 'antd';
 
 import {
   StyledLayout,
-  StyledMenu,
-  StyledHeader,
-  BannerDescription,
   ButtonWrapper,
   CustomOr
 } from './HomeStyles';
@@ -13,6 +10,7 @@ import Categories from '../Categories';
 import JokeModal from '../JokeModal';
 import RandomJokeModal from '../RandomJokeModal';
 import SearchDrawer from '../SearchDrawer';
+import Navbar from '../Navbar';
 
 const { Content, Footer } = Layout;
 
@@ -66,16 +64,7 @@ class Home extends Component {
 
     return (
       <StyledLayout className="layout">
-        <StyledHeader>
-          <div className="logo">
-            <Avatar src="/images/chuck-norris.svg"/>
-            <BannerDescription>Awesome Chuck</BannerDescription>
-          </div>
-
-          <StyledMenu theme="dark" mode="horizontal">
-            <Menu.Item key="1">Home</Menu.Item>
-          </StyledMenu>
-        </StyledHeader>
+        <Navbar/>
 
         <Content style={{ padding: '20px 50px' }}>
           <h2>Awesome Chuck Jokes</h2>
