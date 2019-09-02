@@ -7,14 +7,14 @@ import Routes from '../components/Routes';
 
 describe('Routes Tests', () => {
   it('renders Switch component', () => {
-    const myComponent = shallow(
-      <MockedProvider mocks={null} addTypename={false}>
+    const wrapper = shallow(
+      <MockedProvider mocks={[]} addTypename={false}>
         <Routes/>
       </MockedProvider>
     );
 
-    const wrapper = myComponent.dive().dive().dive().dive();
+    const myComponent = wrapper.dive().dive().dive().dive();
 
-    expect(wrapper.find('Switch').length).toBe(1);
+    expect(myComponent.find('Switch').length).toBe(1);
   });
 });

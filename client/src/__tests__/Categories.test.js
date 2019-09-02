@@ -9,37 +9,23 @@ import LoadingContextProvider from '../contexts/LoadingContext';
 import CategoryContextProvider from '../contexts/CategoryContext';
 
 describe('Categories Tests', () => {
-  const mocks = [
-    {
-      request: {
-        query: FETCH_CATEGORIES
-      },
-      result: {
-        data: {
-          categories: [
-            {
-              'name': 'animal'
-            },
-            {
-              'name': 'career'
-            },
-          ],
-        },
+  const mocks = [{
+    request: {
+      query: FETCH_CATEGORIES
+    },
+    result: {
+      data: {
+        categories: [
+          {
+            'name': 'animal'
+          },
+          {
+            'name': 'career'
+          },
+        ],
       },
     },
-  ];
-
-  it('renders without error', () => {
-    create(
-      <MockedProvider mocks={mocks} addTypename={false}>
-        <CategoryContextProvider>
-          <LoadingContextProvider>
-            <Categories/>
-          </LoadingContextProvider>
-        </CategoryContextProvider>
-      </MockedProvider>,
-    );
-  });
+  }];
 
   it('should render loading state initially', () => {
     const wrapper = create(
@@ -64,7 +50,7 @@ describe('Categories Tests', () => {
             <Categories/>
           </LoadingContextProvider>
         </CategoryContextProvider>
-      </MockedProvider>
+      </MockedProvider>,
     );
 
     await waait(0);

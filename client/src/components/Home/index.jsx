@@ -92,8 +92,8 @@ class Home extends Component {
           <h2>Awesome Chuck Jokes</h2>
 
           <ButtonWrapper>
-            <Button type="primary" onClick={() => this.showModal('random')}>Show Random Joke</Button>
-            <Button type="primary" onClick={this.showDrawer}>Search</Button>
+            <Button type="primary" id="randomJokeBtn" onClick={() => this.showModal('random')}>Show Random Joke</Button>
+            <Button type="primary" id="searchBtn" onClick={this.showDrawer}>Search</Button>
           </ButtonWrapper>
 
           <CustomOr>&nbsp; Or &nbsp;</CustomOr>

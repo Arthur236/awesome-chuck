@@ -8,7 +8,7 @@ import App from '../components/App';
 describe('App Tests', () => {
   it('renders without crashing', () => {
     const wrapper = shallow(
-      <MockedProvider mocks={null} addTypename={false}>
+      <MockedProvider mocks={[]} addTypename={false}>
         <App/>
       </MockedProvider>
     );
@@ -17,14 +17,14 @@ describe('App Tests', () => {
   });
 
   it('renders div wrapper', () => {
-    const myComponent = shallow(
-      <MockedProvider mocks={null} addTypename={false}>
+    const wrapper = shallow(
+      <MockedProvider mocks={[]} addTypename={false}>
         <App/>
       </MockedProvider>
     );
 
-    const wrapper = myComponent.dive().dive().dive().dive();
+    const myComponent = wrapper.dive().dive().dive().dive();
 
-    expect(wrapper.find('.App').length).toBe(1);
+    expect(myComponent.find('.App').length).toBe(1);
   });
 });

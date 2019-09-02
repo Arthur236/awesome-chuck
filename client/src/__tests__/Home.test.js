@@ -1,18 +1,29 @@
 import React from 'react';
 import expect from 'expect';
 import { shallow } from 'enzyme';
-import { MockedProvider } from '@apollo/react-testing';
 
 import Home from '../components/Home';
 
-describe('App Tests', () => {
+describe('Home Tests', () => {
   it('renders Home component successfully', () => {
-    const wrapper = shallow(
-      <MockedProvider mocks={null} addTypename={false}>
-        <Home/>
-      </MockedProvider>
-    );
+    const wrapper = shallow(<Home/>);
 
     expect(wrapper.length).toBe(1);
+  });
+
+  it('calls showModal successfully', () => {
+    const wrapper = shallow(<Home/>);
+
+    const button = wrapper.find('#randomJokeBtn');
+    button.first().props().onClick();
+    expect(wrapper.state().randomModal.visible).toBe(true);
+  });
+
+  it('opens and closes the search drawer successfully', () => {
+    const wrapper = shallow(<Home/>);
+
+    const button = wrapper.find('#searchBtn');
+    button.first().props().onClick();
+    expect(wrapper.state().drawerVisible).toBe(true);
   });
 });
