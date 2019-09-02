@@ -10,13 +10,69 @@ import {
   CustomOr
 } from './HomeStyles';
 import Categories from '../Categories';
+import JokeModal from '../JokeModal';
 
 const { Content, Footer } = Layout;
 
 class Home extends Component {
-  state = {};
+  state = {
+    drawerVisible: false,
+    jokeModal: {
+      visible: false
+    },
+    modalId: null,
+    placement: 'right',
+    randomModal: {
+      visible: false
+    },
+  };
+
+  showModal = (id) => {
+    this.setState({
+      [`${id}Modal`]: {
+        visible: true
+      },
+      modalId: id
+    });
+  };
+
+  handleOk = e => {
+    const id = this.state.modalId;
+
+    this.setState({
+      [`${id}Modal`]: {
+        visible: false
+      },
+      modalId: null
+    });
+  };
+
+  handleCancel = e => {
+    const id = this.state.modalId;
+
+    this.setState({
+      [`${id}Modal`]: {
+        visible: false
+      },
+      modalId: null
+    });
+  };
+
+  showDrawer = () => {
+    this.setState({
+      drawerVisible: true,
+    });
+  };
+
+  onClose = () => {
+    this.setState({
+      drawerVisible: false,
+    });
+  };
 
   render() {
+    const { drawerVisible, jokeModal, placement, randomModal } = this.state;
+
     return (
       <StyledLayout className="layout">
         <StyledHeader>
@@ -42,7 +98,14 @@ class Home extends Component {
 
           <h3>Select Category</h3>
 
-          <Categories/>
+          <Categories showModal={this.showModal}/>
+
+          <JokeModal
+            modalId='joke'
+            modalVisible={jokeModal.visible}
+            handleOk={this.handleOk}
+            handleCancel={this.handleCancel}
+          />
         </Content>
 
         <Footer style={{ textAlign: 'center' }}>

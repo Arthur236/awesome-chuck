@@ -9,6 +9,7 @@ import * as serviceWorker from './serviceWorker';
 
 import App from './components/App';
 import CategoryContextProvider from './contexts/CategoryContext';
+import LoadingContextProvider from './contexts/LoadingContext';
 
 // Set up our apollo-client to point at the server we created
 const cache = new InMemoryCache();
@@ -24,7 +25,9 @@ const client = new ApolloClient({
 ReactDOM.render(
   <ApolloProvider client={client}>
     <CategoryContextProvider>
+      <LoadingContextProvider>
       <App/>
+      </LoadingContextProvider>
     </CategoryContextProvider>
   </ApolloProvider>,
   document.getElementById('root')

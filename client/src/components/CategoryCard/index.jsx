@@ -16,6 +16,7 @@ const CategoryCard = (props) => {
 
   const handleClick = () => {
     setCategory(category.name);
+    props.showModal('joke');
   };
 
   return (

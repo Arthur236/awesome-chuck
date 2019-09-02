@@ -19,13 +19,16 @@ const Categories = (props) => {
 
   if (loading) return <Loader/>;
 
-  if (error) return <p>Could not fetch the categories</p>;
+  if (error) return (
+    <p>Could not fetch the categories <span role='img' aria-label='crying emoji'>😥</span></p>
+  );
 
   const renderCategories = () => (
     data.categories.map((category) => (
       <CategoryCard
         key={category.name}
         category={category}
+        showModal={props.showModal}
       />
     ))
   );
