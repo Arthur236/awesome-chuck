@@ -2,7 +2,7 @@ import React from 'react';
 import expect from 'expect';
 import { MockedProvider } from '@apollo/react-testing';
 import { create } from 'react-test-renderer';
-import waait from 'waait';
+import wait from 'waait';
 
 import Categories, { FETCH_CATEGORIES } from '../components/Categories';
 import LoadingContextProvider from '../contexts/LoadingContext';
@@ -53,7 +53,7 @@ describe('Categories Tests', () => {
       </MockedProvider>,
     );
 
-    await waait(0);
+    await wait(0);
 
     const tree = wrapper.toJSON();
     expect(tree.children[0].props.className).toContain('ant-card');
@@ -77,7 +77,7 @@ describe('Categories Tests', () => {
       </MockedProvider>
     );
 
-    await waait(0);
+    await wait(0);
 
     const tree = wrapper.toJSON();
     expect(tree.children[0]).toContain('Could not fetch the categories');

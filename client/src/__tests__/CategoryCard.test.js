@@ -2,7 +2,6 @@ import React from 'react';
 import expect from 'expect';
 import { MockedProvider } from '@apollo/react-testing';
 import { create } from 'react-test-renderer';
-import waait from 'waait';
 
 import CategoryCard from '../components/CategoryCard';
 import LoadingContextProvider from '../contexts/LoadingContext';

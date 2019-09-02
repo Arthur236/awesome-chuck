@@ -38,17 +38,6 @@ class Home extends Component {
     });
   };
 
-  handleOk = e => {
-    const id = this.state.modalId;
-
-    this.setState({
-      [`${id}Modal`]: {
-        visible: false
-      },
-      modalId: null
-    });
-  };
-
   handleCancel = e => {
     const id = this.state.modalId;
 
@@ -105,14 +94,12 @@ class Home extends Component {
           <JokeModal
             modalId='joke'
             modalVisible={jokeModal.visible}
-            handleOk={this.handleOk}
             handleCancel={this.handleCancel}
           />
 
           <RandomJokeModal
             modalId='random'
             modalVisible={randomModal.visible}
-            handleOk={this.handleOk}
             handleCancel={this.handleCancel}
           />
 

@@ -28,7 +28,8 @@
     "react-scripts": "3.1.1",
     "react-test-renderer": "^16.9.0",
     "styled-components": "^4.3.2",
-    "waait": "^1.0.5"
+    "waait": "^1.0.5",
+    "wait-for-expect": "^2.0.0"
   },
   "devDependencies": {
     "enzyme": "^3.10.0",

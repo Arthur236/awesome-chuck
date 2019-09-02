@@ -10,7 +10,7 @@ import { JokeWrapper } from './JokeModalStyles';
 import { CategoryContext } from '../../contexts/CategoryContext';
 import { LoadingContext } from '../../contexts/LoadingContext';
 
-const FETCH_CATEGORY_JOKE = gql`
+export const FETCH_CATEGORY_JOKE = gql`
   query FetchCategoryJoke($category: String!) {
     joke(category: $category) {
       icon_url
