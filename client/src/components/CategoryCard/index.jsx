@@ -1,9 +1,7 @@
 import React, { useContext } from 'react';
 import changeCase from 'change-case';
 
-import {
-  CustomCard
-} from './CategoryCardStyles';
+import { CustomCard } from './CategoryCardStyles';
 
 import { CategoryContext } from '../../contexts/CategoryContext';
 

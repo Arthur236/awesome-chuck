@@ -11,6 +11,7 @@ import {
 } from './HomeStyles';
 import Categories from '../Categories';
 import JokeModal from '../JokeModal';
+import RandomJokeModal from '../RandomJokeModal';
 
 const { Content, Footer } = Layout;
 
@@ -90,7 +91,7 @@ class Home extends Component {
           <h2>Awesome Chuck Jokes</h2>
 
           <ButtonWrapper>
-            <Button type="primary">Show Random Joke</Button>
+            <Button type="primary" onClick={() => this.showModal('random')}>Show Random Joke</Button>
             <Button type="primary">Search</Button>
           </ButtonWrapper>
 
@@ -103,6 +104,13 @@ class Home extends Component {
           <JokeModal
             modalId='joke'
             modalVisible={jokeModal.visible}
+            handleOk={this.handleOk}
+            handleCancel={this.handleCancel}
+          />
+
+          <RandomJokeModal
+            modalId='random'
+            modalVisible={randomModal.visible}
             handleOk={this.handleOk}
             handleCancel={this.handleCancel}
           />

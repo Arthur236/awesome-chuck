@@ -1,9 +1,6 @@
 import React from 'react';
 
-import {
-  CustomSpinner,
-  CustomIcon
-} from './LoaderStyles';
+import { CustomSpinner, CustomIcon } from './LoaderStyles';
 
 const Loader = () => {
   return (
