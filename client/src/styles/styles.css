@@ -1,3 +1,13 @@
 body {
   background: #f0f2f5;
 }
+
+.ant-drawer-content-wrapper {
+  width: 35% !important;
+}
+
+@media only screen and (max-width: 768px) {
+  .ant-drawer-content-wrapper {
+    width: 70% !important;
+  }
+}

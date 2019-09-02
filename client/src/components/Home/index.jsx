@@ -12,6 +12,7 @@ import {
 import Categories from '../Categories';
 import JokeModal from '../JokeModal';
 import RandomJokeModal from '../RandomJokeModal';
+import SearchDrawer from '../SearchDrawer';
 
 const { Content, Footer } = Layout;
 
@@ -92,7 +93,7 @@ class Home extends Component {
 
           <ButtonWrapper>
             <Button type="primary" onClick={() => this.showModal('random')}>Show Random Joke</Button>
-            <Button type="primary">Search</Button>
+            <Button type="primary" onClick={this.showDrawer}>Search</Button>
           </ButtonWrapper>
 
           <CustomOr>&nbsp; Or &nbsp;</CustomOr>
@@ -113,6 +114,13 @@ class Home extends Component {
             modalVisible={randomModal.visible}
             handleOk={this.handleOk}
             handleCancel={this.handleCancel}
+          />
+
+          <SearchDrawer
+            visible={drawerVisible}
+            placement={placement}
+            closable={false}
+            onClose={this.onClose}
           />
         </Content>
 
