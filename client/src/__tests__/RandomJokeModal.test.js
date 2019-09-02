@@ -4,21 +4,18 @@ import { mount} from 'enzyme';
 import { MockedProvider } from '@apollo/react-testing';
 import waitForExpect from 'wait-for-expect';
 
-import JokeModal, { FETCH_CATEGORY_JOKE } from '../components/JokeModal';
+import RandomJokeModal, { FETCH_RANDOM_JOKE } from '../components/RandomJokeModal';
 import LoadingContextProvider from '../contexts/LoadingContext';
 import CategoryContextProvider from '../contexts/CategoryContext';
 
-describe('JokeModal Tests', () => {
+describe('RandomJokeModal Tests', () => {
   const mock = {
     request: {
-      query: FETCH_CATEGORY_JOKE,
-      variables: {
-        category: 'animal'
-      }
+      query: FETCH_RANDOM_JOKE
     },
     result: {
       data: {
-        joke: {
+        randomJoke: {
           icon_url: 'https://assets.chucknorris.host/img/avatar/chuck-norris.png',
           value: 'A funny joke'
         },
@@ -39,7 +36,7 @@ describe('JokeModal Tests', () => {
       <MockedProvider mocks={[mock, mock]} addTypename={false}>
         <CategoryContextProvider>
           <LoadingContextProvider>
-            <JokeModal {...props}/>
+            <RandomJokeModal {...props}/>
           </LoadingContextProvider>
         </CategoryContextProvider>
       </MockedProvider>
@@ -69,7 +66,7 @@ describe('JokeModal Tests', () => {
       <MockedProvider mocks={[mock, mock]} addTypename={false}>
         <CategoryContextProvider>
           <LoadingContextProvider>
-            <JokeModal {...props}/>
+            <RandomJokeModal {...props}/>
           </LoadingContextProvider>
         </CategoryContextProvider>
       </MockedProvider>

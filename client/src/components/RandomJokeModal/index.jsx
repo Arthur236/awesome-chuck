@@ -8,7 +8,7 @@ import { JokeWrapper } from './RandomJokeModalStyles';
 
 import { LoadingContext } from '../../contexts/LoadingContext';
 
-const FETCH_RANDOM_JOKE = gql`
+export const FETCH_RANDOM_JOKE = gql`
   query FetchRandomJoke {
     randomJoke {
       icon_url
