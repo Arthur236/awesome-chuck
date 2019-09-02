@@ -5,9 +5,10 @@ import { InMemoryCache } from 'apollo-cache-inmemory';
 import { HttpLink } from 'apollo-link-http';
 import { ApolloProvider } from '@apollo/react-hooks';
 
-import App from './components/App';
-
 import * as serviceWorker from './serviceWorker';
+
+import App from './components/App';
+import CategoryContextProvider from './contexts/CategoryContext';
 
 // Set up our apollo-client to point at the server we created
 const cache = new InMemoryCache();
@@ -22,7 +23,9 @@ const client = new ApolloClient({
 
 ReactDOM.render(
   <ApolloProvider client={client}>
-    <App/>
+    <CategoryContextProvider>
+      <App/>
+    </CategoryContextProvider>
   </ApolloProvider>,
   document.getElementById('root')
 );

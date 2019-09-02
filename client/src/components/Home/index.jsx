@@ -9,13 +9,12 @@ import {
   ButtonWrapper,
   CustomOr
 } from './HomeStyles';
+import Categories from '../Categories';
 
 const { Content, Footer } = Layout;
 
 class Home extends Component {
-  state ={
-
-  };
+  state = {};
 
   render() {
     return (
@@ -23,7 +22,7 @@ class Home extends Component {
         <StyledHeader>
           <div className="logo">
             <Avatar src="/images/chuck-norris.svg"/>
-            <BannerDescription>Awesome Chuck Norris Jokes</BannerDescription>
+            <BannerDescription>Awesome Chuck</BannerDescription>
           </div>
 
           <StyledMenu theme="dark" mode="horizontal">
@@ -42,6 +41,8 @@ class Home extends Component {
           <CustomOr>&nbsp; Or &nbsp;</CustomOr>
 
           <h3>Select Category</h3>
+
+          <Categories/>
         </Content>
 
         <Footer style={{ textAlign: 'center' }}>
