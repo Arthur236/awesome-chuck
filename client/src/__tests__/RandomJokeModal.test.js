@@ -27,7 +27,7 @@ describe('RandomJokeModal Tests', () => {
     const handleCancelMock = jest.fn();
 
     const props = {
-      modalId: 'joke',
+      modalId: 'random',
       modalVisible: true,
       handleCancel: handleCancelMock
     };

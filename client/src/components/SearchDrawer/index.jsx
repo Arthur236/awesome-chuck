@@ -7,7 +7,7 @@ import Loader from '../Loader';
 
 const { Search } = Input;
 
-const SEARCH_JOKE = gql`
+export const SEARCH_JOKE = gql`
   query SearchJoke($queryString: String!) {
     searchJoke(queryString: $queryString) {
       total
@@ -46,7 +46,7 @@ const SearchDrawer = (props) => {
 
   const handleSearch = async value => {
     if (value.length < 3) {
-        message.error('The search term should be at least 3 characters long');
+      message.error('The search term should be at least 3 characters long');
 
       return;
     }
