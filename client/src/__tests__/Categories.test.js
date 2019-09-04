@@ -1,7 +1,7 @@
 import React from 'react';
 import expect from 'expect';
+import { mount } from 'enzyme';
 import { MockedProvider } from '@apollo/react-testing';
-import { create } from 'react-test-renderer';
 import waitForExpect from 'wait-for-expect';
 
 import Categories, { FETCH_CATEGORIES } from '../components/Categories';
@@ -28,7 +28,7 @@ describe('Categories Tests', () => {
   }];
 
   it('should render loading state initially', () => {
-    const wrapper = create(
+    const wrapper = mount(
       <MockedProvider mocks={[]} addTypename={false}>
         <CategoryContextProvider>
           <LoadingContextProvider>
@@ -38,24 +38,24 @@ describe('Categories Tests', () => {
       </MockedProvider>
     );
 
-    const tree = wrapper.toJSON();
-    expect(tree.children[0].props.className).toContain('anticon-loading');
+    expect(wrapper.find('.anticon-loading').exists()).toBe(true);
   });
 
   it('should fetch categories successfully', async () => {
-    const wrapper = create(
+    const wrapper = mount(
       <MockedProvider mocks={mocks} addTypename={false}>
         <CategoryContextProvider>
           <LoadingContextProvider>
             <Categories/>
           </LoadingContextProvider>
         </CategoryContextProvider>
-      </MockedProvider>,
+      </MockedProvider>
     );
 
     await waitForExpect(() => {
-      const tree = wrapper.toJSON();
-      expect(tree.children[0].props.className).toContain('ant-card');
+      wrapper.update();
+
+      expect(wrapper.find('.ant-card').length).toBeGreaterThan(1);
     });
   });
 
@@ -67,7 +67,7 @@ describe('Categories Tests', () => {
       error: new Error('Could not fetch categories'),
     }];
 
-    const wrapper = create(
+    const wrapper = mount(
       <MockedProvider mocks={mock} addTypename={false}>
         <CategoryContextProvider>
           <LoadingContextProvider>
@@ -78,8 +78,9 @@ describe('Categories Tests', () => {
     );
 
     await waitForExpect(() => {
-      const tree = wrapper.toJSON();
-      expect(tree.children[0]).toContain('Could not fetch the categories');
+      wrapper.update();
+
+      expect(wrapper.find('p').html()).toContain('Could not fetch the categories');
     });
   });
 });

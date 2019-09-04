@@ -1,6 +1,6 @@
 import React from 'react';
 import expect from 'expect';
-import { mount} from 'enzyme';
+import { mount } from 'enzyme';
 import { MockedProvider } from '@apollo/react-testing';
 import waitForExpect from 'wait-for-expect';
 
@@ -20,23 +20,17 @@ describe('SearchDrawer Tests', () => {
       data: {
         searchJoke: {
           total: 1,
-          results: {
-            id: '1000',
-            icon_url: 'https://assets.chucknorris.host/img/avatar/chuck-norris.png',
-            value: 'A funny hat joke'
-          }
+          results: [
+            {
+              id: '1000',
+              icon_url: 'https://assets.chucknorris.host/img/avatar/chuck-norris.png',
+              value: 'A funny hat joke'
+            }
+          ]
         },
       },
     },
   };
-
-  beforeAll(() => {
-    jest.spyOn(console, 'error').mockImplementation((...args) => {
-      if (!args[1].includes('TypeError: Invalid attempt to spread non-iterable instance')) {
-        consoleError(...args);
-      }
-    });
-  });
 
   it('searches for a joke successfully', async () => {
     const onCloseMock = jest.fn();

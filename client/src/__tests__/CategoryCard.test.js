@@ -1,14 +1,15 @@
 import React from 'react';
 import expect from 'expect';
+import { mount } from 'enzyme';
 import { MockedProvider } from '@apollo/react-testing';
-import { create } from 'react-test-renderer';
+import waitForExpect from 'wait-for-expect';
 
 import CategoryCard from '../components/CategoryCard';
 import LoadingContextProvider from '../contexts/LoadingContext';
 import CategoryContextProvider from '../contexts/CategoryContext';
 
 describe('Category Card Tests', () => {
-  it('calls showModal successfully', () => {
+  it('calls showModal successfully', async () => {
     const showModalMock = jest.fn();
     const props = {
       category: {
@@ -17,18 +18,22 @@ describe('Category Card Tests', () => {
       showModal: showModalMock
     };
 
-    const wrapper = create(
+    const wrapper = mount(
       <MockedProvider mocks={[]} addTypename={false}>
         <CategoryContextProvider>
           <LoadingContextProvider>
             <CategoryCard {...props}/>
           </LoadingContextProvider>
         </CategoryContextProvider>
-      </MockedProvider>,
+      </MockedProvider>
     );
 
-    const instance = wrapper.toJSON();
-    instance.props.onClick();
-    expect(showModalMock.mock.calls.length).toBe(1);
+    await waitForExpect(() => {
+      wrapper.update();
+
+      const categoryCard = wrapper.find('CategoryCard');
+      categoryCard.simulate('click');
+      expect(showModalMock.mock.calls.length).toBe(1);
+    });
   });
 });
