@@ -44,7 +44,6 @@
       "src/**/*.js",
       "!src/index.js",
       "!src/handler.js",
-      "!src/dataSources/**/*.js",
       "!<rootDir>/node_modules/"
     ],
     "coverageReporters": ["text"],

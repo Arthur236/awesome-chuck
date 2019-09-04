@@ -4,7 +4,7 @@ const expect = require('expect');
 
 const typeDefs = require('../src/schema');
 const resolvers = require('../src/resolvers');
-const ChuckNorrisAPIMock = require('./mocks/chuckNorrisApi');
+const ChuckNorrisAPI = require('../src/dataSources/chuckNorris');
 
 describe('Categories Tests', () => {
   const expectedResponse = [
@@ -14,7 +14,7 @@ describe('Categories Tests', () => {
   ];
 
   it('fetches categories', async () => {
-    const chuckNorrisApi = new ChuckNorrisAPIMock();
+    const chuckNorrisApi = new ChuckNorrisAPI();
 
     // create a test server to test against, using our production typeDefs,
     // resolvers, and dataSources.
@@ -25,6 +25,9 @@ describe('Categories Tests', () => {
         chuckNorrisApi
       })
     });
+
+    // mock the data source methods
+    chuckNorrisApi.getCategories = jest.fn(() => expectedResponse);
 
     // use the test server to create a query function
     const { query } = createTestClient(server);

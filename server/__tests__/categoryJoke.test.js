@@ -4,7 +4,7 @@ const expect = require('expect');
 
 const typeDefs = require('../src/schema');
 const resolvers = require('../src/resolvers');
-const ChuckNorrisAPIMock = require('./mocks/chuckNorrisApi');
+const ChuckNorrisAPI = require('../src/dataSources/chuckNorris');
 
 describe('Category Joke Tests', () => {
   const expectedResponse = {
@@ -15,7 +15,7 @@ describe('Category Joke Tests', () => {
   };
 
   it('fetches a joke based on category', async () => {
-    const chuckNorrisApi = new ChuckNorrisAPIMock();
+    const chuckNorrisApi = new ChuckNorrisAPI();
 
     // create a test server to test against, using our production typeDefs,
     // resolvers, and dataSources.
@@ -26,6 +26,9 @@ describe('Category Joke Tests', () => {
         chuckNorrisApi
       })
     });
+
+    // mock the data source methods
+    chuckNorrisApi.getRandomJokeByCategory = jest.fn(() => expectedResponse);
 
     // use the test server to create a query function
     const { query } = createTestClient(server);
