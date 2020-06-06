@@ -20,7 +20,7 @@
     "apollo-datasource": "^0.6.3",
     "apollo-datasource-rest": "^0.6.3",
     "apollo-server": "^2.9.2",
-    "apollo-server-lambda": "^2.9.2",
+    "apollo-server-lambda": "^2.14.2",
     "apollo-server-testing": "^2.9.2",
     "babel-loader": "^8.0.6",
     "chalk": "^2.4.2",
