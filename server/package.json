@@ -19,7 +19,7 @@
     "@babel/preset-env": "^7.5.5",
     "apollo-datasource": "^0.6.3",
     "apollo-datasource-rest": "^0.6.3",
-    "apollo-server": "^2.9.2",
+    "apollo-server": "^2.25.3",
     "apollo-server-lambda": "^2.9.2",
     "apollo-server-testing": "^2.9.2",
     "babel-loader": "^8.0.6",
